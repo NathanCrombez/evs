@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="verbose" value="1"/>
+  <arg name="pathToInputBag" value="/home/nathan/ROS/Noetic/catkin_ws/bag_EPGMVS.bag"/>
+  <arg name="pathToOutputBag" value="/home/nathan/ROS/Noetic/catkin_ws/EPGMVS_wRef.bag"/>
+  <arg name="desiredPoseTopic" value="/camera/desired_pose"/>
+  <arg name="currentPoseTopic" value="/camera/current_pose"/>
+
+
+  <node pkg="evs" type="evs_reference_trajectory" name="evs_genVSRefTraj" output="screen" respawn="false">
+    <param name="verbose" value="$(arg verbose)"/>
+    <param name="pathToInputBag" type="str" value="$(arg pathToInputBag)"/>
+    <param name="pathToOutputBag" type="str" value="$(arg pathToOutputBag)"/>
+    <param name="desiredPoseTopic" type="str" value="$(arg desiredPoseTopic)"/>
+    <param name="currentPoseTopic" type="str" value="$(arg currentPoseTopic)"/>
+  </node>
+</launch>
