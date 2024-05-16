@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="verbose" value="1"/>
-  <arg name="pathToInputBag" value="/home/nathan/ROS/Noetic/catkin_ws/bag_EPGMVS.bag"/>
-  <arg name="pathToOutputBag" value="/home/nathan/ROS/Noetic/catkin_ws/EPGMVS_wRef.bag"/>
+  <arg name="pathToInputBag" value="$(find evs)/data/exp_EPGMVS.bag"/>
+  <arg name="pathToOutputBag" value="$(find evs)/data/EPGMVS_wRef.bag"/>
   <arg name="desiredPoseTopic" value="/camera/desired_pose"/>
   <arg name="currentPoseTopic" value="/camera/current_pose"/>
 
