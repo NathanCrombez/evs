@@ -35,5 +35,5 @@ The resulting ROS bag can be used with evo tools:
 - ```evo_ape bag output1.bag /vs/reference /vs/current  --save_results output1.ape```
 - ```evo_ape bag output2.bag /vs/reference /vs/current  --save_results output2.ape```
 - ```evo_res output1.ape output2.ape -p --use_filenames```
-- etc (for more, see https://github.com/MichaelGrupp/evo)
+- etc... (for more, see https://github.com/MichaelGrupp/evo)
 

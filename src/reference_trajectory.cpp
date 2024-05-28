@@ -53,13 +53,13 @@ int main(int argc, char* argv[]){
     std::vector<geometry_msgs::PoseStamped> traj;
     rosbag::Bag bag_in(pathToInputBag,rosbag::bagmode::Read);
     std::vector<std::string> topics;
-    topics.push_back(std::string("/camera/current_pose"));
-    topics.push_back(std::string("/camera/desired_pose"));
+    topics.push_back(std::string(currentPoseTopic));
+    topics.push_back(std::string(desiredPoseTopic));
     rosbag::View view(bag_in,rosbag::TopicQuery(topics));
     BOOST_FOREACH (rosbag::MessageInstance const m, view) {
         if(std::strcmp(m.getTopic().c_str(), topics[0].c_str())==0){
             traj.push_back(*m.instantiate<geometry_msgs::PoseStamped>());
-        }else{
+        }else if(std::strcmp(m.getTopic().c_str(), topics[1].c_str())==0){
             desiredPose = *m.instantiate<geometry_msgs::PoseStamped>();
         }
     }
